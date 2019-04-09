@@ -2,16 +2,23 @@
 <html>
 <head>
 	<title>Login</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css" media="screen" />
 </head>
 <body>
-	Hello Login
-	<form action='/login' method="post">
-		<label> Username
-			<input type="text" name="username"></label>
-		<label> Password			
-		<input type="password" name="password"> </label>
-		<input type="submit" name="Enviar">
-	</form>
-	<a href="/cadastro"> Cadastre-se</a>
+	<div class="content">
+		<div class="form">
+			<h1>Login</h1>
+			<form action='/login' method="post">
+				<label> Username:
+					<input type="text" name="username">
+				</label>
+				<label> Password:			
+					<input type="password" name="password">
+				</label>
+				<input type="submit" name="Enviar">
+			</form>
+			<a href="./cadastro.html" class="cadastrar"> Cadastre-se</a>
+		</div>
+	</div>
 </body>
 </html>

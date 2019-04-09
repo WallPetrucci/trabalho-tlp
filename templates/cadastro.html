@@ -2,15 +2,20 @@
 <html>
 <head>
 	<title>Cadastro</title>
+	<link rel="stylesheet" type="text/css" href="css/estilo.css" media="screen" />
 </head>
 <body>
-	Hello Cadastro
-	<form action='/cadastrar' method="post">
-		<label> Username
-			<input type="text" name="username"></label>
-		<label> Password			
-		<input type="password" name="password"> </label>
-		<input type="submit" name="Enviar">
-	</form>
+	<div class="content">
+		<div class="form">
+			<h1>Cadastro</h1>
+			<form action='/cadastrar' method="post">
+				<label> Username:
+					<input type="text" name="username"></label>
+				<label> Password:			
+				<input type="password" name="password"> </label>
+				<input type="submit" name="Enviar">
+			</form>
+		</div>
+	</div>
 </body>
 </html>
