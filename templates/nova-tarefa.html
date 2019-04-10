@@ -5,18 +5,23 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo.css') }}" media="screen" />
 </head>
 <body>
-    {% include 'menu.html' %}
-    <form action='/cadastrar_tarefa' method="POST" class="card-form">
-        <label class="mg-t-10">Título</label>
-        <input type="text" name="titulo_tarefa"/>
+    <div class="content">
+        <div class=" form">
+            <h1>Nova tarefa</h1>
+            {% include 'menu.html' %}
+            <form action='/cadastrar_tarefa' method="POST">
+                <label class="mg-t-10">TItulo</label>
+                <input type="text" name="titulo_tarefa"/>
 
-        <label class="mg-t-10">Descrição</label>
-        <input type="text" name="desc_tarefa"/>
+                <label class="mg-t-10">Descricao</label>
+                <input type="text" name="desc_tarefa"/>
 
-        <label class="mg-t-10">Responsável</label>
-        <input type="text" name="responsavel_tarefa" />
+                <label class="mg-t-10">Responsavel</label>
+                <input type="text" name="responsavel_tarefa" />
 
-        <input type="submit">
-    </form>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
 </body>
 </html>
