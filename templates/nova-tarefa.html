@@ -6,15 +6,15 @@
 </head>
 <body>
     {% include 'menu.html' %}
-    <form method="POST" class="card-form">
+    <form action='/cadastrar_tarefa' method="POST" class="card-form">
         <label class="mg-t-10">Título</label>
-        <input type="text" name="title"/>
+        <input type="text" name="titulo_tarefa"/>
 
         <label class="mg-t-10">Descrição</label>
-        <input type="text" name="description"/>
+        <input type="text" name="desc_tarefa"/>
 
         <label class="mg-t-10">Responsável</label>
-        <input type="text" name="responsible" />
+        <input type="text" name="responsavel_tarefa" />
 
         <input type="submit">
     </form>
