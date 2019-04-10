@@ -6,24 +6,24 @@ app = Flask(__name__)
 app.secret_key = 'secretkey'
 
 def qtd_users():
-    cont = 0
-    try:
-      with open(const.USER_FILE_NAME, 'r') as file:
-        for userdata in file:
-          cont = cont + 1
-      return cont
-    except:
-      return "Não existe nenhum usuario cadastrado"
+  cont = 0
+  try:
+    with open(const.USER_FILE_NAME, 'r') as file:
+      for userdata in file:
+        cont = cont + 1
+    return cont
+  except:
+    return "Não existe nenhum usuario cadastrado"
 
 def qtd_tarefa():
-    cont = 0
-    try:
-      with open(const.TAREFA_FILE_NAME, 'r') as file:
-        for tarefadata in file:
-          cont = cont + 1
-      return cont
-    except:
-      return "Não existe nenhuma tarefa cadastrada"
+  cont = 0
+  try:
+    with open(const.TAREFA_FILE_NAME, 'r') as file:
+      for tarefadata in file:
+        cont = cont + 1
+    return cont
+  except:
+    return "Não existe nenhuma tarefa cadastrada"
 
 # Titulo, Descriçao, Nome, Autor
 @app.route('/tarefas') 
@@ -41,17 +41,17 @@ def cadastro_tarefa():
         
 @app.route('/')
 def home():
-    if not session.get('logged_in'):
-      return render_template(const.LOGIN_FILE_NAME)
-    else:
-      return dashboard()
+  if not session.get('logged_in'):
+    return render_template(const.LOGIN_FILE_NAME)
+  else:
+    return dashboard()
 
 @app.route('/dashboard')
 def dashboard():
-    if not session.get('logged_in'):
-      return redirect(url_for('home'))
-    else:        
-      return render_template(const.DASHBOARD_FILE_NAME, user=session['username'], 
+  if not session.get('logged_in'):
+    return redirect(url_for('home'))
+  else:        
+    return render_template(const.DASHBOARD_FILE_NAME, user=session['username'], 
                               quantidade_user=qtd_users(), quantidade_tarefa=qtd_tarefa())
 
 @app.route('/login', methods=['POST'])
