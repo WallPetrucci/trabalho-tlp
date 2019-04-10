@@ -38,7 +38,7 @@ def tarefa():
         for line in file:
             tarefa_array.append(line.split(','))
 
-    return render_template(const.TAREFAS_HTML, tarefas=tarefa_array)
+    return render_template(const.TAREFAS_HTML, tarefas=tarefa_array, user=session['username'])
 
 
 @app.route('/tarefas/nova-tarefa')
@@ -46,7 +46,7 @@ def nova_tarefa():
     if not session.get('logged_in'):
         return render_template(const.LOGIN_FILE_NAME)
     else:
-        return render_template(const.NEW_TASK_FILE_NAME)
+        return render_template(const.NEW_TASK_FILE_NAME, user=session['username'])
 
 
 @app.route('/cadastrar_tarefa', methods=['POST'])
