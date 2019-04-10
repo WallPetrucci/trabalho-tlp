@@ -15,15 +15,25 @@ def qtd_users():
     except:
       return "Não existe nenhum usuario cadastrado"
 
-def qtd_enquete():
+def qtd_tarefa():
     cont = 0
     try:
-      with open(const.ENQUETE_FILE_NAME, 'r') as file:
-          for enquetedata in file:
+      with open(const.TAREFA_FILE_NAME, 'r') as file:
+          for tarefadata in file:
             cont = cont + 1
       return cont
     except:
-      return "Não existe nenhuma enquete cadastrada"
+      return "Não existe nenhuma tarefa cadastrada"
+
+# Titulo, Descriçao, Nome, Autor
+@app.route('/tarefas') 
+def tarefa():
+  with open(const.USER_FILE_NAME, 'r') as file:
+      tarefa_array = list()
+      for userdata in file:
+        
+@app.route('/tarefas/nova-tarefa') 
+def cadastro_tarefa():
 
 
 @app.route('/')
@@ -39,7 +49,7 @@ def dashboard():
        return redirect(url_for('home'))
     else:        
        return render_template(const.DASHBOARD_FILE_NAME, user=session['username'], 
-                              quantidade_user=qtd_users(), quantidade_enquete=qtd_enquete())
+                              quantidade_user=qtd_users(), quantidade_tarefa=qtd_tarefa())
 
 @app.route('/login', methods=['POST'])
 def do_login():
@@ -55,7 +65,6 @@ def do_login():
 
 @app.route('/logout')
 def do_logout():
-    print(session.get('logged_in'))
     if session.get('logged_in'):       
        session.pop('logged_in', None)
        session.pop('username', None)
@@ -77,10 +86,6 @@ def cadastrar():
         file.write('{} {} \n'.format(user, password))
 
     return home()
-
-
-
-
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=4000)
