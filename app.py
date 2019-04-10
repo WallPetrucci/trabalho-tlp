@@ -31,10 +31,11 @@ def tarefa():
   with open(const.USER_FILE_NAME, 'r') as file:
       tarefa_array = list()
       for userdata in file:
+        x = userdata
         
 @app.route('/tarefas/nova-tarefa') 
 def cadastro_tarefa():
-
+  pass
 
 @app.route('/')
 def home():

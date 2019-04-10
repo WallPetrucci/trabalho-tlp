@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo.css') }}" media="screen" />
 </head>
 <body>
 {% include 'menu.html' %}
-<a href="/logout"> Sair </a>
+Quantidade Usuário: {{ quantidade_user }}
+Quantidade Enquete: {{ quantidade_enquete }}
 </body>
 </html>
