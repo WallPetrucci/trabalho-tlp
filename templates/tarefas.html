@@ -6,23 +6,28 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo.css') }}" media="screen" />
 </head>
 <body>
+	<div class="container">
 {% include 'menu.html' %}
-<table>
-	<tr>
-		<th>Título</th>
-		<th>Descrição</th>
-		<th>Nome</th>
-		<th>Autor</th>
-	</tr>
-	{% for tarefa in tarefas %}
-	<tr>
-		<td>{{tarefa[0]}}</td>
-		<td>{{tarefa[1]}}</td>
-		<td>{{tarefa[2]}}</td>
-		<td>{{tarefa[3]}}</td>
-	</tr>
-	{% endfor %}	
-
-</table>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Título</th>
+					<th>Descrição</th>
+					<th>Nome</th>
+					<th>Autor</th>
+				</tr>
+			</thead>
+			<tbody>
+			{% for tarefa in tarefas %}
+			<tr>
+				<td>{{tarefa[0]}}</td>
+				<td>{{tarefa[1]}}</td>
+				<td>{{tarefa[2]}}</td>
+				<td>{{tarefa[3]}}</td>
+			</tr>
+			{% endfor %}
+			</tbody>	
+		</table>
+	</div>
 </body>
 </html>

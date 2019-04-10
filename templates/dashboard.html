@@ -5,8 +5,22 @@
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo.css') }}" media="screen" />
 </head>
 <body>
-{% include 'menu.html' %}
-Quantidade de Usuário(s): {{ quantidade_user }}
-Quantidade Tarefa(s): {{ quantidade_tarefa }}
+	<div class="container">
+		<table class="table">
+			{% include 'menu.html' %}
+			<thead>
+				<tr>
+					<th>Quantidade de Usuario(s):</th>
+					<th>Quantidade Tarefa:</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>{{ quantidade_user }}</td>
+					<td>{{ quantidade_tarefa }}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>
