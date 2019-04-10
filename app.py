@@ -60,7 +60,7 @@ def cadastrar_tarefa():
     autor = session['username']
 
     with open(const.TAREFAS_FILE_NAME, 'a') as file:
-        file.write("{},{},{},{}".format(titulo, desc, responsavel, autor))
+        file.write("{},{},{},{} \n".format(titulo, desc, responsavel, autor))
 
     return redirect(url_for('tarefa'))
 
