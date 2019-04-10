@@ -71,17 +71,17 @@ def do_login():
 
 @app.route('/logout')
 def do_logout():
-    if session.get('logged_in'):       
-       session.pop('logged_in', None)
-       session.pop('username', None)
-       session.clear()
-       return redirect(url_for('home'))
+  if session.get('logged_in'):       
+   	session.pop('logged_in', None)
+	  session.pop('username', None)
+	  session.clear()
+	  return redirect(url_for('home'))
 
-    return home()
+  return home()
 
 @app.route('/cadastro')
 def cadastro():
-    return render_template('cadastro.html')
+  return render_template('cadastro.html')
 
 @app.route('/cadastrar', methods=['POST'])
 def cadastrar():
