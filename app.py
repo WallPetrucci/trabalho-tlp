@@ -43,7 +43,7 @@ def dashboard():
 
 @app.route('/login', methods=['POST'])
 def do_login():
-    with open(USER_FILE_NAME) as file:
+    with open(const.USER_FILE_NAME) as file:
             for userdata in file:
                 user = userdata.split(" ")
                 if request.form['password'] == user[1] and request.form['username'] == user[0]:
@@ -73,7 +73,7 @@ def cadastrar():
     user = request.form['username'].strip()
     password = request.form['password'].strip()
 
-    with open(USER_FILE_NAME, 'a') as file:
+    with open(const.USER_FILE_NAME, 'a') as file:
         file.write('{} {} \n'.format(user, password))
 
     return home()
