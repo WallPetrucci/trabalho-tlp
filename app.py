@@ -28,26 +28,30 @@ def qtd_tarefa():
 # Titulo, Descriçao, Nome, Autor
 @app.route('/tarefas') 
 def tarefa():
-	with open(const.TAREFAS_FILE_NAME, 'r') as file:
-		print(file)
+  with open(const.TAREFAS_FILE_NAME, 'r') as file:
+    tarefa_array = list()
+    for line in file:
+      tarefa_array.append(line.split(','))
+
+  return render_template(const.TAREFAS_HTML, tarefas = tarefa_array)
         
 @app.route('/tarefas/nova-tarefa') 
 def cadastro_tarefa():
   return render_template(const.NEW_TASK_FILE_NAME)
-
+        
 @app.route('/')
 def home():
     if not session.get('logged_in'):
-     	return render_template(const.LOGIN_FILE_NAME)
+      return render_template(const.LOGIN_FILE_NAME)
     else:
       return dashboard()
 
 @app.route('/dashboard')
 def dashboard():
     if not session.get('logged_in'):
-     	return redirect(url_for('home'))
+      return redirect(url_for('home'))
     else:        
-     	return render_template(const.DASHBOARD_FILE_NAME, user=session['username'], 
+      return render_template(const.DASHBOARD_FILE_NAME, user=session['username'], 
                               quantidade_user=qtd_users(), quantidade_tarefa=qtd_tarefa())
 
 @app.route('/login', methods=['POST'])
@@ -59,7 +63,7 @@ def do_login():
         session['logged_in'] = True
         session['username'] = user[0]
         return redirect(url_for('dashboard'))
-
+  
   return redirect(url_for('cadastro'))
 
 @app.route('/logout')

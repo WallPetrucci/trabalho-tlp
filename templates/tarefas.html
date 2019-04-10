@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Tarefas</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo.css') }}" media="screen" />
+</head>
+<body>
+{% include 'menu.html' %}
+<table>
+	<tr>
+		<th>Título</th>
+		<th>Descrição</th>
+		<th>Nome</th>
+		<th>Autor</th>
+	</tr>
+	{% for tarefa in tarefas %}
+	<tr>
+		<td>{{tarefa[0]}}</td>
+		<td>{{tarefa[1]}}</td>
+		<td>{{tarefa[2]}}</td>
+		<td>{{tarefa[3]}}</td>
+	</tr>
+	{% endfor %}	
+
+</table>
+</body>
+</html>
