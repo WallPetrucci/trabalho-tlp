@@ -30,13 +30,6 @@ def qtd_tarefa():
 def tarefa():
 	with open(const.TAREFAS_FILE_NAME, 'r') as file:
 		print(file)
-      	              
-@app.route('/tarefas/nova-tarefa') 
-def cadastro_tarefa():
-  with open(const.USER_FILE_NAME, 'r') as file:
-    tarefa_array = list()
-    for userdata in file:
-      x = userdata
         
 @app.route('/tarefas/nova-tarefa') 
 def cadastro_tarefa():
@@ -72,10 +65,10 @@ def do_login():
 @app.route('/logout')
 def do_logout():
   if session.get('logged_in'):       
-   	session.pop('logged_in', None)
-	  session.pop('username', None)
-	  session.clear()
-	  return redirect(url_for('home'))
+    session.pop('logged_in', None)
+    session.pop('username', None)
+    session.clear()
+    return redirect(url_for('home'))
 
   return home()
 
