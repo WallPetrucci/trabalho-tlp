@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dashboard</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/estilo.css') }}" media="screen" />
+</head>
+<body>
+    {% include 'menu.html' %}
+    <form method="POST" class="card-form">
+        <label class="mg-t-10">Título</label>
+        <input type="text" name="title"/>
+
+        <label class="mg-t-10">Descrição</label>
+        <input type="text" name="description"/>
+
+        <label class="mg-t-10">Responsável</label>
+        <input type="text" name="responsible" />
+
+        <input type="submit">
+    </form>
+</body>
+</html>

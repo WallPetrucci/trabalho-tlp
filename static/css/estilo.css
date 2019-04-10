@@ -182,3 +182,15 @@ header navbar ul li:hover {
 body {
     padding-top: 80px;
 }
+
+.card-form {
+    width: 80vw;
+    margin-left: calc(10vw - 20px);
+    box-shadow: 0 1px 5px 1px rgba(0,0,0,.15);
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.mg-t-10 {
+    margin-top:10px;
+}

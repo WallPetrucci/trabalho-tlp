@@ -35,7 +35,7 @@ def tarefa():
         
 @app.route('/tarefas/nova-tarefa') 
 def cadastro_tarefa():
-  pass
+  return render_template(const.NEW_TASK_FILE_NAME)
 
 @app.route('/')
 def home():
