@@ -28,13 +28,12 @@ def qtd_tarefa():
 # Titulo, Descriçao, Nome, Autor
 @app.route('/tarefas') 
 def tarefa():
-  with open(const.USER_FILE_NAME, 'r') as file:
-      tarefa_array = list()
-      for userdata in file:
-        
+	with open(const.TAREFAS_FILE_NAME, 'r') as file:
+		print(file)
+      	              
 @app.route('/tarefas/nova-tarefa') 
 def cadastro_tarefa():
-
+	pass
 
 @app.route('/')
 def home():
